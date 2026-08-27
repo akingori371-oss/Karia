@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Booking from "./pages/Bookingpage";
+import SignIn from "./pages/SignIn";
 
 const NAV_LINKS = [
   "Services",
@@ -281,6 +282,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Booking" element={<Booking />} />
+        <Route path="/SignIn" element={<SIgnIn/>}/>
       </Routes>
     </BrowserRouter>
   );
