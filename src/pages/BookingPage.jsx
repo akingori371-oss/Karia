@@ -1,26 +1,20 @@
-import { useState } from "react"
+import { useState } from "react";
 
-const DOCTORS = [{
-    name: "Dr John Kamau",
-    speciality: "Surgeon"
-},
-{
-name: "Dr Naomi Kiarie",
-speciality: "Nursing"
-}
-]
+const DOCTORS = [
+  { name: "Dr John Kamau", speciality: "Surgeon" },
+  { name: "Dr Naomi Kiarie", speciality: "Nursing" },
+];
 
 const SERVICES = [
-    "Treatment of common ilnesses",
-    "First aid and management if minor wounds",
-    "Antenatal care check-ups",
-    "Basic disease screening",
-    "Deworming and supplementation programs"
-]
+  "Treatment of common illnesses",
+  "First aid and management of minor wounds",
+  "Antenatal care check-ups",
+  "Basic disease screening",
+  "Deworming and supplementation programs",
+];
 
 function Booking() {
-    const [formData , setFormData] = useState(
-        {
+  const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
@@ -29,26 +23,28 @@ function Booking() {
     date: "",
     time: "",
     reason: "",
-        }
-    )
+  });
 
-    const [submitted , setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-    function handleChange() {
-        const {name , value} = e.target;
+  function handleChange(e) {
+    const { name, value } = e.target;
 
-        setFormData((prev) => ({
-            ...prev,
-            [name] : value
-        }))
-    }
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  }
 
-    function handleSubmittion(){
-        setSubmitted(true);
-        console.log("Appointment:",  formData)
-    }
-    if(submitted) {(
-         <div className="min-h-screen hero-gradient flex items-center justify-center px-6 pt-20">
+  function handleSubmit(e) {
+    e.preventDefault();
+    setSubmitted(true);
+    console.log("Appointment:", formData);
+  }
+
+  if (submitted) {
+    return (
+      <div className="min-h-screen hero-gradient flex items-center justify-center px-6 pt-20">
         <div className="glass rounded-3xl p-10 max-w-lg w-full text-center shadow-xl">
           <div className="w-16 h-16 mx-auto rounded-full bg-emerald-100 flex items-center justify-center mb-6">
             <svg
@@ -124,9 +120,7 @@ function Booking() {
               </svg>
             </div>
 
-            <h2 className="font-serif text-2xl text-slate-800">
-              Your Visit
-            </h2>
+            <h2 className="font-serif text-2xl text-slate-800">Your Visit</h2>
 
             <p className="text-sm text-slate-500 mt-2 leading-relaxed">
               Choose your preferred service, doctor, date and time.
@@ -137,12 +131,10 @@ function Booking() {
                 <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
                   ✓
                 </div>
-
                 <div>
                   <p className="text-sm font-semibold text-slate-700">
                     Easy Booking
                   </p>
-
                   <p className="text-xs text-slate-400 mt-1">
                     Complete the form in just a few minutes.
                   </p>
@@ -153,12 +145,10 @@ function Booking() {
                 <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
                   🕐
                 </div>
-
                 <div>
                   <p className="text-sm font-semibold text-slate-700">
                     Flexible Hours
                   </p>
-
                   <p className="text-xs text-slate-400 mt-1">
                     Appointments available Monday to Saturday.
                   </p>
@@ -169,12 +159,10 @@ function Booking() {
                 <div className="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center text-red-500">
                   ☎
                 </div>
-
                 <div>
                   <p className="text-sm font-semibold text-slate-700">
                     Need Help?
                   </p>
-
                   <p className="text-xs text-slate-400 mt-1">
                     Call +233 30 290 0001
                   </p>
@@ -184,7 +172,6 @@ function Booking() {
 
             <div className="border-t border-slate-200 mt-7 pt-6">
               <p className="text-xs text-slate-400">Working Hours</p>
-
               <p className="text-sm font-semibold text-slate-700 mt-1">
                 Mon – Sat · 7 AM – 8 PM
               </p>
@@ -198,7 +185,6 @@ function Booking() {
                 <h2 className="font-serif text-2xl text-slate-800">
                   Patient Information
                 </h2>
-
                 <p className="text-xs text-slate-400 mt-1">
                   Please enter your personal details.
                 </p>
@@ -210,7 +196,6 @@ function Booking() {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Full Name
                   </label>
-
                   <input
                     type="text"
                     name="name"
@@ -226,7 +211,6 @@ function Booking() {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Email Address
                   </label>
-
                   <input
                     type="email"
                     name="email"
@@ -245,7 +229,6 @@ function Booking() {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Phone Number
                   </label>
-
                   <input
                     type="tel"
                     name="phone"
@@ -261,7 +244,6 @@ function Booking() {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Medical Service
                   </label>
-
                   <select
                     name="service"
                     value={formData.service}
@@ -270,7 +252,6 @@ function Booking() {
                     className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
                   >
                     <option value="">Select a service</option>
-
                     {SERVICES.map((service) => (
                       <option key={service} value={service}>
                         {service}
@@ -285,7 +266,6 @@ function Booking() {
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Preferred Doctor
                 </label>
-
                 <select
                   name="doctor"
                   value={formData.doctor}
@@ -294,10 +274,9 @@ function Booking() {
                   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
                 >
                   <option value="">Select a doctor</option>
-
                   {DOCTORS.map((doctor) => (
                     <option key={doctor.name} value={doctor.name}>
-                      {doctor.name} — {doctor.specialty}
+                      {doctor.name} — {doctor.speciality}
                     </option>
                   ))}
                 </select>
@@ -309,7 +288,6 @@ function Booking() {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Appointment Date
                   </label>
-
                   <input
                     type="date"
                     name="date"
@@ -325,7 +303,6 @@ function Booking() {
                   <label className="block text-sm font-semibold text-slate-700 mb-2">
                     Preferred Time
                   </label>
-
                   <select
                     name="time"
                     value={formData.time}
@@ -353,7 +330,6 @@ function Booking() {
                 <label className="block text-sm font-semibold text-slate-700 mb-2">
                   Reason for Visit
                 </label>
-
                 <textarea
                   name="reason"
                   value={formData.reason}
@@ -381,7 +357,6 @@ function Booking() {
                   <rect x="3" y="4" width="18" height="18" rx="2" />
                   <path d="M16 2v4M8 2v4M3 10h18" />
                 </svg>
-
                 Request Appointment
               </button>
 
@@ -394,5 +369,7 @@ function Booking() {
         </div>
       </div>
     </div>
-    )}
-export default Booking
+  );
+}
+
+export default Booking;

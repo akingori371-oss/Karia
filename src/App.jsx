@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Booking from "./pages/Bookingpage";
-import SignIn from "./pages/SignIn";
+import SignInPage from "./pages/SignIn";
 
 const NAV_LINKS = [
   "Services",
@@ -40,12 +40,15 @@ function Nav() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <button className="text-sm font-medium text-slate-800 hover:text-indigo-600 transition-colors px-3 py-2">
-            Sign In
-          </button>
+          <Link
+    to="/signin"
+    className="text-sm font-medium text-slate-800 hover:text-indigo-600 transition-colors px-3 py-2"
+  >
+    Sign In
+  </Link>
 
           <Link
-            to="/booking"
+            to="/signin"
             className="border border-slate-900 bg-transparent text-slate-900 hover:bg-slate-900 hover:text-white px-6 py-2.5 text-sm font-medium transition-all duration-200"
           >
             Book Appointment
@@ -80,7 +83,7 @@ function Nav() {
           ))}
 
           <Link
-            to="/booking"
+            to="/signin"
             onClick={() => setMenuOpen(false)}
             className="border border-slate-900 text-center py-3 text-sm font-medium text-slate-900 mt-2"
           >
@@ -136,7 +139,7 @@ function Hero() {
 
         <div className="mt-4">
           <Link
-            to="/booking"
+            to="/signin"
             className="border border-slate-900 bg-[#e8eeff] text-slate-900 hover:bg-slate-900 hover:text-white px-8 py-3 text-sm font-medium transition-all duration-200 inline-block shadow-sm"
           >
             Book Appointment
@@ -282,7 +285,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/Booking" element={<Booking />} />
-        <Route path="/SignIn" element={<SIgnIn/>}/>
+        <Route path="/signin" element={<SignInPage/>}/>
       </Routes>
     </BrowserRouter>
   );

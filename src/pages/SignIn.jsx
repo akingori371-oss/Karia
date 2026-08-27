@@ -1,6 +1,32 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 export default function SignInPage() {
+   const [formData , setFormData] = useState({
+    name : "",
+    email : ""
+   })
+    const [message , setMessage] = useState("");
+
+    function handleChange(e){
+        const {name, value} = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name] : value
+        }))
+
+     function SignPatient(e){
+        e.preventDefault();
+
+        if(formData.name === "" || formData.email === ""){
+            message("Please fill in all the inputs");
+            return
+        }else{
+            setMessage("");
+            console.log("Signed in:", formData)
+        }
+     }   
+    }
   return (
     <div className="min-h-screen bg-[#e8eeff] font-sans antialiased flex flex-col justify-between relative overflow-hidden">
       {/* Background Shapes */}
@@ -21,6 +47,10 @@ export default function SignInPage() {
         >
           ← Back to Home
         </Link>
+
+       <Link to="/signin">
+       Sign In
+       </Link>
       </header>
 
       {/* Main Form Display */}
@@ -78,6 +108,9 @@ export default function SignInPage() {
             <button
               type="button"
               className="w-full mt-2 border border-slate-900 bg-slate-900 text-white hover:bg-transparent hover:text-slate-900 py-3.5 text-sm font-semibold uppercase tracking-wider transition-all duration-200"
+              onClick={() => {
+                
+              }
             >
               Sign In
             </button>
