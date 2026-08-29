@@ -20,7 +20,7 @@ export default function SignInPage() {
 function SignPatient(e) {
     e.preventDefault();
 
-    if (formData.name === "" || formData.email === "") {
+    if (formData.email === "" || formData.password === "") {
         setMessage("Please fill in all the inputs");
         return;
     }
@@ -28,7 +28,7 @@ function SignPatient(e) {
     setMessage("");
     console.log("Signed in:", formData);
 }  
-    }
+}
   return (
     <div className="min-h-screen bg-[#e8eeff] font-sans antialiased flex flex-col justify-between relative overflow-hidden">
       {/* Background Shapes */}
