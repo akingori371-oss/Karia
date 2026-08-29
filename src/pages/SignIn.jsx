@@ -27,7 +27,7 @@ function SignPatient(e) {
 
     setMessage("");
     console.log("Signed in:", formData);
-}  
+  
 }
   return (
     <div className="min-h-screen bg-[#e8eeff] font-sans antialiased flex flex-col justify-between relative overflow-hidden">
@@ -153,4 +153,4 @@ function SignPatient(e) {
         © 2026 Karia Medical Clinic. All rights reserved.
       </footer>
     </div>
-  );
+  )};
