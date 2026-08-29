@@ -8,25 +8,6 @@ export default function SignInPage() {
    })
     const [message , setMessage] = useState("");
 
-    // function handleChange(e){
-    //     const {name, value} = e.target;
-    //     setFormData((prev) => ({
-    //         ...prev,
-    //         [name] : value 
-    //     }))
-
-    //  function SignPatient(e){
-    //     e.preventDefault();
-
-    //     if(formData.name === "" || formData.email === ""){
-    //         message("Please fill in all the inputs");
-    //         return
-    //     }else{
-    //         setMessage("");
-    //         console.log("Signed in:", formData)
-    //     }
-    //   }
-
         function handleChange(e) {
     const { name, value } = e.target;
 
