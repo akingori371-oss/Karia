@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function SignInPage() {
+  const navigate = useNavigate();
    const [formData , setFormData] = useState({
     email : "",
     password : ""
@@ -27,6 +28,8 @@ function SignPatient(e) {
 
     setMessage("");
     console.log("Signed in:", formData);
+    navigate("/Booking")
+    
   
 }
   return (

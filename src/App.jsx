@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Booking from "./pages/Bookingpage";
+import Booking from "./pages/BookingPage";
 import SignInPage from "./pages/SignIn";
 
 const NAV_LINKS = [
