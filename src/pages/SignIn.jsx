@@ -8,24 +8,45 @@ export default function SignInPage() {
    })
     const [message , setMessage] = useState("");
 
-    function handleChange(e){
-        const {name, value} = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name] : value
-        }))
+    // function handleChange(e){
+    //     const {name, value} = e.target;
+    //     setFormData((prev) => ({
+    //         ...prev,
+    //         [name] : value 
+    //     }))
 
-     function SignPatient(e){
-        e.preventDefault();
+    //  function SignPatient(e){
+    //     e.preventDefault();
 
-        if(formData.name === "" || formData.email === ""){
-            message("Please fill in all the inputs");
-            return
-        }else{
-            setMessage("");
-            console.log("Signed in:", formData)
-        }
-     }   
+    //     if(formData.name === "" || formData.email === ""){
+    //         message("Please fill in all the inputs");
+    //         return
+    //     }else{
+    //         setMessage("");
+    //         console.log("Signed in:", formData)
+    //     }
+    //   }
+
+        function handleChange(e) {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+        ...prev,
+        [name]: value
+    }));
+}
+
+function SignPatient(e) {
+    e.preventDefault();
+
+    if (formData.name === "" || formData.email === "") {
+        setMessage("Please fill in all the inputs");
+        return;
+    }
+
+    setMessage("");
+    console.log("Signed in:", formData);
+}  
     }
   return (
     <div className="min-h-screen bg-[#e8eeff] font-sans antialiased flex flex-col justify-between relative overflow-hidden">
@@ -67,6 +88,7 @@ export default function SignInPage() {
           </div>
 
           {/* Form UI Display */}
+          <form onSubmit={SignPatient}>
           <div className="flex flex-col gap-5">
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
@@ -75,6 +97,8 @@ export default function SignInPage() {
               <input
                 type="email"
                 placeholder="name@example.com"
+                name="email"
+                onChange={handleChange}
                 className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
               />
             </div>
@@ -91,6 +115,8 @@ export default function SignInPage() {
               <input
                 type="password"
                 placeholder="••••••••"
+                name="password"
+                onChange={handleChange}
                 className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
               />
             </div>
@@ -106,15 +132,14 @@ export default function SignInPage() {
             </div>
 
             <button
-              type="button"
+              type="submit"
               className="w-full mt-2 border border-slate-900 bg-slate-900 text-white hover:bg-transparent hover:text-slate-900 py-3.5 text-sm font-semibold uppercase tracking-wider transition-all duration-200"
-              onClick={() => {
-                
-              }
+            
             >
               Sign In
             </button>
           </div>
+          </form>
 
           {/* Divider */}
           <div className="relative my-6 text-center">
@@ -148,4 +173,3 @@ export default function SignInPage() {
       </footer>
     </div>
   );
-}

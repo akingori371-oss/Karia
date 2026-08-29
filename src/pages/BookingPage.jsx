@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const DOCTORS = [
   { name: "Dr John Kamau", speciality: "Surgeon" },
@@ -44,156 +45,200 @@ function Booking() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen hero-gradient flex items-center justify-center px-6 pt-20">
-        <div className="glass rounded-3xl p-10 max-w-lg w-full text-center shadow-xl">
-          <div className="w-16 h-16 mx-auto rounded-full bg-emerald-100 flex items-center justify-center mb-6">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#059669"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-          </div>
+      <div className="min-h-screen bg-[#e8eeff] font-sans antialiased flex flex-col justify-between relative overflow-hidden">
+        {/* Background Decorative Graphic Elements */}
+        <div className="absolute top-[-10%] left-[-5%] w-72 h-72 md:w-96 md:h-96 rounded-full bg-indigo-200/40 pointer-events-none" />
+        <div 
+          className="absolute bottom-0 inset-x-0 h-48 md:h-64 bg-indigo-200/30 pointer-events-none"
+          style={{ clipPath: "polygon(50% 20%, 0% 100%, 100% 100%)" }}
+        />
 
-          <h1 className="font-serif text-4xl text-slate-800">
-            Appointment Requested
-          </h1>
-
-          <p className="text-slate-500 mt-4 leading-relaxed">
-            Thank you, {formData.name}. Your appointment request has been
-            received. Our patient coordinator will contact you to confirm the
-            appointment.
-          </p>
-
-          <button
-            onClick={() => setSubmitted(false)}
-            className="btn-primary mt-7 px-6 py-3 rounded-xl font-semibold"
+        {/* Top Header Navigation */}
+        <header className="px-8 py-6 flex items-center justify-between z-10">
+          <Link to="/" className="font-bold text-2xl tracking-tight text-slate-900">
+            Karia Medical
+          </Link>
+          <Link
+            to="/"
+            className="text-xs font-semibold uppercase tracking-wider text-slate-700 hover:text-indigo-600 transition-colors"
           >
-            Book Another Appointment
-          </button>
-        </div>
+            ← Back to Home
+          </Link>
+        </header>
+
+        {/* Success Confirmation Card */}
+        <main className="flex-1 flex items-center justify-center px-6 py-12 z-10">
+          <div className="w-full max-w-lg bg-white border border-slate-200 p-8 sm:p-10 text-center shadow-sm">
+            <div className="w-16 h-16 mx-auto border border-slate-900 bg-[#e8eeff] flex items-center justify-center mb-6">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="text-slate-900"
+              >
+                <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 uppercase tracking-tight">
+              Appointment Requested
+            </h1>
+
+            <p className="text-slate-600 text-sm mt-4 leading-relaxed">
+              Thank you, <strong className="text-slate-900">{formData.name}</strong>. Your appointment request has been received. Our patient coordinator will contact you to confirm details.
+            </p>
+
+            <button
+              onClick={() => setSubmitted(false)}
+              className="w-full mt-8 border border-slate-900 bg-slate-900 text-white hover:bg-transparent hover:text-slate-900 py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200"
+            >
+              Book Another Appointment
+            </button>
+          </div>
+        </main>
+
+        <footer className="py-6 text-center text-xs text-slate-500 border-t border-indigo-100 z-10">
+          © 2026 Karia Medical Clinic. All rights reserved.
+        </footer>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen hero-gradient pt-28 pb-20 px-6">
-      <div className="max-w-5xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-10">
-          <span className="text-xs font-semibold uppercase tracking-widest text-emerald-600">
+    <div className="min-h-screen bg-[#e8eeff] font-sans antialiased flex flex-col justify-between relative overflow-hidden">
+      {/* Background Decorative Graphic Elements */}
+      <div className="absolute top-[-10%] left-[-5%] w-72 h-72 md:w-96 md:h-96 rounded-full bg-indigo-200/40 pointer-events-none" />
+      <div 
+        className="absolute bottom-0 inset-x-0 h-48 md:h-64 bg-indigo-200/30 pointer-events-none"
+        style={{ clipPath: "polygon(50% 20%, 0% 100%, 100% 100%)" }}
+      />
+
+      {/* Header */}
+      <header className="px-8 py-6 flex items-center justify-between z-10 border-b border-indigo-100/60 bg-[#e8eeff]/80 backdrop-blur-sm">
+        <Link to="/" className="font-bold text-2xl tracking-tight text-slate-900">
+          Karia Medical
+        </Link>
+        <Link
+          to="/"
+          className="text-xs font-semibold uppercase tracking-wider text-slate-700 hover:text-indigo-600 transition-colors"
+        >
+          ← Back to Home
+        </Link>
+      </header>
+
+      {/* Main Container */}
+      <main className="flex-1 max-w-6xl mx-auto w-full px-6 pt-12 pb-20 z-10">
+        {/* Page Title Header */}
+        <div className="text-center mb-12">
+          <span className="text-xs font-bold uppercase tracking-widest text-indigo-600">
             Patient Booking
           </span>
-
-          <h1 className="font-serif text-4xl md:text-5xl text-slate-800 mt-2">
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 uppercase tracking-tight mt-2">
             Book an Appointment
           </h1>
-
-          <p className="text-slate-500 max-w-xl mx-auto mt-4 leading-relaxed">
-            Schedule your visit with one of our healthcare professionals.
-            Please provide the information below and our team will confirm
-            your appointment.
+          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto mt-3 leading-relaxed">
+            Schedule your visit with one of our healthcare professionals. Please provide your details below to finalize your booking request.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Left information panel */}
-          <div className="glass rounded-3xl p-7 shadow-lg h-fit">
-            <div className="w-12 h-12 rounded-2xl bg-emerald-100 flex items-center justify-center mb-5">
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          {/* Left Panel - Clinic Info */}
+          <div className="bg-white border border-slate-200 p-8 shadow-sm">
+            <div className="w-12 h-12 border border-slate-900 bg-[#e8eeff] flex items-center justify-center mb-6">
               <svg
-                width="24"
-                height="24"
+                width="22"
+                height="22"
                 viewBox="0 0 24 24"
                 fill="none"
-                stroke="#059669"
+                stroke="currentColor"
                 strokeWidth="1.8"
-                strokeLinecap="round"
+                className="text-slate-900"
               >
-                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <rect x="3" y="4" width="18" height="18" />
                 <path d="M16 2v4M8 2v4M3 10h18" />
               </svg>
             </div>
 
-            <h2 className="font-serif text-2xl text-slate-800">Your Visit</h2>
-
-            <p className="text-sm text-slate-500 mt-2 leading-relaxed">
-              Choose your preferred service, doctor, date and time.
+            <h2 className="text-xl font-bold text-slate-900 uppercase tracking-tight">
+              Your Visit
+            </h2>
+            <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+              Select your preferred clinical service, doctor, and schedule.
             </p>
 
-            <div className="mt-7 space-y-5">
-              <div className="flex gap-3">
-                <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
-                  ✓
-                </div>
+            <div className="mt-8 space-y-6 border-t border-slate-100 pt-6">
+              <div className="flex gap-4 items-start">
+                <span className="font-bold text-xs border border-slate-900 px-2 py-0.5 text-slate-900">
+                  01
+                </span>
                 <div>
-                  <p className="text-sm font-semibold text-slate-700">
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-900">
                     Easy Booking
                   </p>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Complete the form in just a few minutes.
+                  <p className="text-xs text-slate-500 mt-1">
+                    Complete the online form in just a few minutes.
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3">
-                <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
-                  🕐
-                </div>
+              <div className="flex gap-4 items-start">
+                <span className="font-bold text-xs border border-slate-900 px-2 py-0.5 text-slate-900">
+                  02
+                </span>
                 <div>
-                  <p className="text-sm font-semibold text-slate-700">
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-900">
                     Flexible Hours
                   </p>
-                  <p className="text-xs text-slate-400 mt-1">
+                  <p className="text-xs text-slate-500 mt-1">
                     Appointments available Monday to Saturday.
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3">
-                <div className="w-9 h-9 rounded-xl bg-red-50 flex items-center justify-center text-red-500">
-                  ☎
-                </div>
+              <div className="flex gap-4 items-start">
+                <span className="font-bold text-xs border border-slate-900 px-2 py-0.5 text-slate-900">
+                  03
+                </span>
                 <div>
-                  <p className="text-sm font-semibold text-slate-700">
-                    Need Help?
+                  <p className="text-xs font-bold uppercase tracking-wider text-slate-900">
+                    Direct Support
                   </p>
-                  <p className="text-xs text-slate-400 mt-1">
-                    Call +233 30 290 0001
+                  <p className="text-xs text-slate-500 mt-1">
+                    Call line: +233 30 290 0001
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="border-t border-slate-200 mt-7 pt-6">
-              <p className="text-xs text-slate-400">Working Hours</p>
-              <p className="text-sm font-semibold text-slate-700 mt-1">
-                Mon – Sat · 7 AM – 8 PM
+            <div className="border-t border-slate-200 mt-8 pt-6">
+              <p className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Operating Hours
+              </p>
+              <p className="text-xs font-semibold text-slate-900 mt-1">
+                Mon – Sat · 7:00 AM – 8:00 PM
               </p>
             </div>
           </div>
 
-          {/* Booking form */}
-          <div className="lg:col-span-2 glass rounded-3xl p-7 md:p-9 shadow-lg">
-            <form onSubmit={handleSubmit}>
-              <div className="mb-7">
-                <h2 className="font-serif text-2xl text-slate-800">
-                  Patient Information
+          {/* Right Panel - Booking Form */}
+          <div className="lg:col-span-2 bg-white border border-slate-200 p-8 sm:p-10 shadow-sm">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+              <div className="border-b border-slate-100 pb-4">
+                <h2 className="text-xl font-bold text-slate-900 uppercase tracking-tight">
+                  Patient Details
                 </h2>
-                <p className="text-xs text-slate-400 mt-1">
-                  Please enter your personal details.
+                <p className="text-xs text-slate-500 mt-1">
+                  Fill in your information to schedule your consultation.
                 </p>
               </div>
 
-              {/* Name + Email */}
-              <div className="grid md:grid-cols-2 gap-5">
+              {/* Name & Email */}
+              <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Full Name
                   </label>
                   <input
@@ -203,12 +248,12 @@ function Booking() {
                     onChange={handleChange}
                     placeholder="Enter your full name"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                    className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Email Address
                   </label>
                   <input
@@ -218,15 +263,15 @@ function Booking() {
                     onChange={handleChange}
                     placeholder="you@example.com"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                    className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
                   />
                 </div>
               </div>
 
-              {/* Phone + Service */}
-              <div className="grid md:grid-cols-2 gap-5 mt-5">
+              {/* Phone & Service */}
+              <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Phone Number
                   </label>
                   <input
@@ -236,12 +281,12 @@ function Booking() {
                     onChange={handleChange}
                     placeholder="+254 7XX XXX XXX"
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                    className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Medical Service
                   </label>
                   <select
@@ -249,7 +294,7 @@ function Booking() {
                     value={formData.service}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                    className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
                   >
                     <option value="">Select a service</option>
                     {SERVICES.map((service) => (
@@ -262,8 +307,8 @@ function Booking() {
               </div>
 
               {/* Doctor */}
-              <div className="mt-5">
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                   Preferred Doctor
                 </label>
                 <select
@@ -271,7 +316,7 @@ function Booking() {
                   value={formData.doctor}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                  className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
                 >
                   <option value="">Select a doctor</option>
                   {DOCTORS.map((doctor) => (
@@ -282,10 +327,10 @@ function Booking() {
                 </select>
               </div>
 
-              {/* Date + Time */}
-              <div className="grid md:grid-cols-2 gap-5 mt-5">
+              {/* Date & Time */}
+              <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Appointment Date
                   </label>
                   <input
@@ -295,12 +340,12 @@ function Booking() {
                     onChange={handleChange}
                     required
                     min={new Date().toISOString().split("T")[0]}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                    className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                     Preferred Time
                   </label>
                   <select
@@ -308,7 +353,7 @@ function Booking() {
                     value={formData.time}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                    className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors"
                   >
                     <option value="">Select a time</option>
                     <option value="08:00">8:00 AM</option>
@@ -326,48 +371,40 @@ function Booking() {
               </div>
 
               {/* Reason */}
-              <div className="mt-5">
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+              <div>
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
                   Reason for Visit
                 </label>
                 <textarea
                   name="reason"
                   value={formData.reason}
                   onChange={handleChange}
-                  rows="4"
+                  rows="3"
                   placeholder="Briefly describe the reason for your visit..."
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/70 outline-none resize-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 transition"
+                  className="w-full px-4 py-3 text-sm text-slate-900 bg-[#e8eeff]/30 border border-slate-300 focus:border-slate-900 focus:bg-white focus:outline-none transition-colors resize-none"
                 />
               </div>
 
-              {/* Submit */}
+              {/* Submit Button */}
               <button
                 type="submit"
-                className="btn-primary w-full mt-7 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2"
+                className="w-full mt-2 border border-slate-900 bg-slate-900 text-white hover:bg-transparent hover:text-slate-900 py-3.5 text-xs font-semibold uppercase tracking-wider transition-all duration-200"
               >
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                >
-                  <rect x="3" y="4" width="18" height="18" rx="2" />
-                  <path d="M16 2v4M8 2v4M3 10h18" />
-                </svg>
                 Request Appointment
               </button>
 
-              <p className="text-center text-xs text-slate-400 mt-4">
-                By submitting this form, you agree to be contacted regarding
-                your appointment.
+              <p className="text-center text-xs text-slate-400">
+                By submitting this form, you agree to be contacted regarding your appointment request.
               </p>
             </form>
           </div>
         </div>
-      </div>
+      </main>
+
+      {/* Footer Strip */}
+      <footer className="py-6 text-center text-xs text-slate-500 border-t border-indigo-100 z-10">
+        © 2026 Karia Medical Clinic. All rights reserved.
+      </footer>
     </div>
   );
 }
