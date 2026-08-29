@@ -236,7 +236,7 @@ function Doctors() {
               <h3 className="font-bold text-slate-900 text-base">{d.name}</h3>
               <p className="text-xs text-slate-500 mt-1 mb-6">{d.specialty}</p>
               <Link
-                to="/booking"
+                to="/signin"
                 className="block border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white py-2 text-xs font-medium transition-all"
               >
                 Book Visit

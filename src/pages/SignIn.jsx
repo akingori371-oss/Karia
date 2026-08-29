@@ -115,6 +115,12 @@ function SignPatient(e) {
               </label>
             </div>
 
+            {message && (
+  <p className="text-red-500 text-sm text-center font-medium">
+    {message}
+  </p>
+)}
+
             <button
               type="submit"
               className="w-full mt-2 border border-slate-900 bg-slate-900 text-white hover:bg-transparent hover:text-slate-900 py-3.5 text-sm font-semibold uppercase tracking-wider transition-all duration-200"
