@@ -3,8 +3,8 @@ import { useState } from "react";
 
 export default function SignInPage() {
    const [formData , setFormData] = useState({
-    name : "",
-    email : ""
+    email : "",
+    password : ""
    })
     const [message , setMessage] = useState("");
 
