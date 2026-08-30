@@ -188,9 +188,6 @@ function Services() {
                 </ul>
               </div>
 
-              <button className="border border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white py-2.5 text-xs font-medium transition-all mt-8 text-center">
-                Learn More
-              </button>
             </div>
           ))}
         </div>
