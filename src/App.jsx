@@ -211,7 +211,7 @@ function Services() {
 }
 
 const DOCTORS = [
-  { name: "Dr. Naomi Wambui", specialty: "General Practitioner" },
+  { name: "Dr. Naomi Wambui", specialty: "Nursing" },
   { name: "Dr. Caroline", specialty: "Obstetrician & Gynaecologist" },
   { name: "Dr. Kwame Asante", specialty: "Internal Medicine" },
   { name: "Dr. Lillian Mwangi", specialty: "Paediatrician" },

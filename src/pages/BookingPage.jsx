@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 const DOCTORS = [
   { name: "Dr John Kamau", speciality: "Surgeon" },
   { name: "Dr Naomi Kiarie", speciality: "Nursing" },
+  { name: "Dr Caroline", speciality: "Obstetrician & Gynaecologist" },
+  { name: "Dr Kwame Asante", speciality: "Internal Medicine" },
+  { name: "Dr Lilian Mwangi", speciality: "Paediatrician" },
 ];
 
 const SERVICES = [
