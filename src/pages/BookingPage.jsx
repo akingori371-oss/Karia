@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { db } from "../Firebase";
 
 const DOCTORS = [
   { name: "Dr John Kamau", speciality: "Surgeon" },
