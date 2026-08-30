@@ -4,15 +4,15 @@ import Booking from "./pages/BookingPage";
 import SignInPage from "./pages/SignIn";
 import PrivacyPage from "./pages/Privacy";
 import TermsPage from "./pages/Terms"
+import AboutPage from "./pages/About";
+import ContactPage from "./pages/Contact";
 
 const NAV_LINKS = [
-  "Services",
-  "About",
-  "Doctors",
-  "Patient Portal",
-  "Contact",
-];
+  { name: "Home", path: "/" },
+  { name: "About", path: "/aboutpage" },
+  { name: "Contact", path: "/contactpage" },
 
+];
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -25,20 +25,23 @@ function Nav() {
           </span>
         </div>
 
-        <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link, index) => (
-            <a
-              key={link}
-              href="#"
-              className={`text-sm font-medium transition-colors ${
-                index === 0
-                  ? "text-indigo-600 font-semibold"
-                  : "text-slate-700 hover:text-indigo-600"
-              }`}
-            >
-              {link}
-            </a>
-          ))}
+       <div className="hidden md:flex items-center gap-8">
+  {NAV_LINKS.map((link, index) => (
+    <Link
+      key={link.name}
+      to={link.path}
+      className={`text-sm font-medium transition-colors ${
+        index === 0
+          ? "text-indigo-600 font-semibold"
+          : "text-slate-700 hover:text-indigo-600"
+      }`}
+    >
+      {link.name}
+    </Link>
+  ))}
+</div>
+
+          
         </div>
 
         <div className="hidden md:flex items-center gap-4">
@@ -56,7 +59,7 @@ function Nav() {
             Book Appointment
           </Link>
         </div>
-
+<div>
         <button
           className="md:hidden text-slate-900"
           onClick={() => setMenuOpen((value) => !value)}
@@ -290,6 +293,10 @@ export default function App() {
         <Route path="/signin" element={<SignInPage/>}/>
         <Route path="/privacypage" element={<PrivacyPage/>}/>
         <Route path="/termspage" element={<TermsPage/>}/>
+        <Route path="/aboutpage" element={<AboutPage/>}/>
+        <Route path="/contactpage" element={<ContactPage/>}/>
+        
+        
       </Routes>
     </BrowserRouter>
   );
