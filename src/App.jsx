@@ -44,7 +44,7 @@ function Nav() {
           
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
+        {/* <div className="hidden md:flex items-center gap-4">
           <Link
     to="/signin"
     className="text-sm font-medium text-slate-800 hover:text-indigo-600 transition-colors px-3 py-2"
@@ -58,7 +58,7 @@ function Nav() {
           >
             Book Appointment
           </Link>
-        </div>
+        </div> */}
 <div>
         <button
           className="md:hidden text-slate-900"
