@@ -44,21 +44,7 @@ function Nav() {
           
         </div>
 
-        {/* <div className="hidden md:flex items-center gap-4">
-          <Link
-    to="/signin"
-    className="text-sm font-medium text-slate-800 hover:text-indigo-600 transition-colors px-3 py-2"
-  >
-    Sign In
-  </Link>
-
-          <Link
-            to="/signin"
-            className="border border-slate-900 bg-transparent text-slate-900 hover:bg-slate-900 hover:text-white px-6 py-2.5 text-sm font-medium transition-all duration-200"
-          >
-            Book Appointment
-          </Link>
-        </div> */}
+    
 <div>
         <button
           className="md:hidden text-slate-900"
