@@ -2,6 +2,8 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Booking from "./pages/BookingPage";
 import SignInPage from "./pages/SignIn";
+import PrivacyPage from "./pages/Privacy";
+import TermsPage from "./pages/Terms"
 
 const NAV_LINKS = [
   "Services",
@@ -258,9 +260,9 @@ function Footer() {
           © 2026 Karia Medical Clinic. All rights reserved.
         </p>
         <div className="flex gap-6 text-xs text-slate-600">
-          <a href="#" className="hover:text-slate-900 transition-colors">Privacy</a>
-          <a href="#" className="hover:text-slate-900 transition-colors">Terms</a>
-          <a href="#" className="hover:text-slate-900 transition-colors">Contact</a>
+          <Link to="privacypage" className="hover:text-slate-900 transition-colors">Privacy</Link>
+          <Link to="termspage" className="hover:text-slate-900 transition-colors">Terms</Link>
+   
         </div>
       </div>
     </footer>
@@ -286,6 +288,8 @@ export default function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/Booking" element={<Booking />} />
         <Route path="/signin" element={<SignInPage/>}/>
+        <Route path="/privacypage" element={<PrivacyPage/>}/>
+        <Route path="/termspage" element={<TermsPage/>}/>
       </Routes>
     </BrowserRouter>
   );
