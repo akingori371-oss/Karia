@@ -1,8 +1,10 @@
 
 import { Link } from "react-router-dom";
-import { useState,use } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function ContactPage() {
+    const navigate = useNavigate()
     const [message , setMessage] = useState("")
   const [formData, setFormData] = useState({
     name: "",
@@ -28,8 +30,8 @@ export default function ContactPage() {
     }
 
     console.log("Contact message:", formData);
-    setMessage("Thank you for your information,it will be taken to consideration")
-    navigation(/)
+    alert("Thank you for your information,it will be taken to consideration")
+   navigate("/")
 }
 
 
