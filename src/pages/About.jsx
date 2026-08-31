@@ -156,7 +156,7 @@ export default function AboutPage() {
               </p>
 
               <Link
-                to="/booking"
+                to="/signin"
                 className="inline-block bg-slate-900 text-white hover:bg-transparent hover:text-slate-900 border border-slate-900 px-6 py-3 text-sm font-semibold uppercase tracking-wider transition-all duration-200"
               >
                 Book Appointment
