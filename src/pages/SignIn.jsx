@@ -136,23 +136,10 @@ function SignPatient(e) {
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-slate-200" />
             </div>
-            <span className="relative bg-white px-4 text-xs text-slate-400 uppercase tracking-widest">
-              Or
-            </span>
+          
           </div>
 
-          {/* Secondary Action Link */}
-          <div className="text-center">
-            <p className="text-xs text-slate-600">
-              Don't have a patient account yet?{" "}
-              <Link 
-                to="/booking" 
-                className="font-bold text-slate-900 hover:text-indigo-600 underline transition-colors"
-              >
-                Register via Booking
-              </Link>
-            </p>
-          </div>
+          
 
         </div>
       </main>
