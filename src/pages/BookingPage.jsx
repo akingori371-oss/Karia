@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { db } from "../Firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../firebase";
+
 
 const DOCTORS = [
   { name: "Dr John Kamau", speciality: "Surgeon" },
@@ -41,11 +43,28 @@ function Booking() {
     }));
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  async function handleSubmit(e) {
+  e.preventDefault();
+
+  try {
+    await addDoc(collection(db, "appointments"), {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      doctor: formData.doctor,
+      date: formData.date,
+      time: formData.time,
+      reason: formData.reason,
+    });
+
+    console.log("Appointment saved to Firebase!");
+
     setSubmitted(true);
-    console.log("Appointment:", formData);
+  } catch (error) {
+    console.error("Error saving appointment:", error);
   }
+}
 
   if (submitted) {
     return (
